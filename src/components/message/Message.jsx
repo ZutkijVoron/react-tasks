@@ -3,7 +3,7 @@ import cls from "./message.module.css";
 
 /**
  * Create a message component
- * @param {React.ComponentProps<'div'>} props
+ * @param {React.ComponentProps<'div'>} param0
  * @returns {JSX.Element}
  */
 function Message({ className, children, ...props }) {
