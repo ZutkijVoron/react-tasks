@@ -1,4 +1,4 @@
-import App from "../App";
+import MainPage from "../page/MainPage";
 import TemperatureConverter from "../page/TemperatureConverter";
 import TodoList from "../page/TodoList";
 import About from "../page/About";
@@ -6,7 +6,7 @@ import About from "../page/About";
 var routes = [
   {
     path: "/",
-    element: <App />,
+    element: <MainPage />,
     name: "Главная"
   },
   {

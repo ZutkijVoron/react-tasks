@@ -27,7 +27,7 @@ function TemperatureConverter() {
   };
 
   return (
-    <Container sx={{ mt: 5, textAlign: "center" }} className="App">
+    <Container sx={{ textAlign: "center" }} className="App">
       <Message variant="h4" gutterBottom>
         Конвертер температуры
       </Message>

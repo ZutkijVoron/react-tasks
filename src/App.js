@@ -1,20 +1,43 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
-import Message from './components/message/Message';
-import CommentsList from './components/commentsList/CommentsList';
+import routes from './routes';
+import { Route, BrowserRouter, Routes, NavLink } from 'react-router';
+import HeaderComponent from './components/header/HeaderComponent';
+import { ThemeProvider } from '@mui/material';
+import { createTheme } from '@mui/material/styles';
+import { useSelector } from 'react-redux';
+import ToggleTheme from './components/ToggleTheme/ToggleTheme';
+
 
 function App() {
-  var { 0: comments, 1: setComments } = React.useState([
-    { id: 1, text: "Это первый комментарий" },
-    { id: 2, text: "Это второй комментарий" },
-    { id: 3, text: "Это третий комментарий" }
-  ]);;
+  var isDark = useSelector((state) => state.theme.isDark);
+  useEffect(() => {
+    document.body.classList.toggle("dark", isDark);
+  }, [isDark]);
+  var theme = createTheme({
+    palette: {
+      mode: isDark ? "dark" : "light",
+    },
+  });
   return (
-    <div className="App">
-      <Message>Комменты</Message>
-      <CommentsList comments={comments} deleteComment={(id) => setComments(comments.filter(comment => comment.id !== id))} />
-    </div>
-  );
+    <ThemeProvider theme={theme}>
+      <div className={isDark ? "dark" : ""}>
+        <BrowserRouter>
+          <HeaderComponent>
+            {routes.map((route) => (
+              <NavLink key={route.path} to={route.path}>{route.name}</NavLink>
+            ))}
+            <ToggleTheme />
+          </HeaderComponent>
+          <Routes className="content">
+            {routes.map((route) => (
+              <Route key={route.path} {...route} />
+            ))}
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </ThemeProvider>
+  )
 }
 
 export default App;

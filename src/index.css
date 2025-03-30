@@ -5,9 +5,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --var-bg-color: #fff;
+  --var-font-color: #000;
+  background-color: var(--var-bg-color);
+  color: var(--var-font-color);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.dark {
+  --var-bg-color: #000;
+  --var-font-color: #fff;
 }
