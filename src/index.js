@@ -1,13 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import routes from './routes';
+import { Route, BrowserRouter, Routes, NavLink } from 'react-router';
+import HeaderComponent from './components/header/HeaderComponent';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+var root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <HeaderComponent>
+        {routes.map((route) => (
+          <NavLink key={route.path} to={route.path}>{route.name}</NavLink>
+        ))}
+      </HeaderComponent>
+      <Routes className="content">
+        {routes.map((route) => (
+          <Route key={route.path} {...route} />
+        ))}
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

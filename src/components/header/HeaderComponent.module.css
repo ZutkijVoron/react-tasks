@@ -1,0 +1,19 @@
+.header {
+  color: teal;
+  font-weight: bold;
+  text-align: center;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid teal;
+  border-radius: 5px;
+  background-color: transparent;
+  position: fixed;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
