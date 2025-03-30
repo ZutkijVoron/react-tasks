@@ -1,6 +1,7 @@
 import App from "../App";
 import TemperatureConverter from "../page/TemperatureConverter";
 import TodoList from "../page/TodoList";
+import About from "../page/About";
 
 var routes = [
   {
@@ -17,6 +18,11 @@ var routes = [
     path: "/todo-list",
     element: <TodoList />,
     name: "TodoList"
+  },
+  {
+    path: "/about",
+    element: <About />,
+    name: "About"
   }
 ];
 
