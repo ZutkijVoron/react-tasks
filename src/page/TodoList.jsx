@@ -14,12 +14,12 @@ import Message from "../components/message/Message";
 
 var TodoList = () => {
   var [tasks, setTasks] = useState([]);
-  var [newTask, setNewTask] = useState("");
+  var [newTask, setNewTask] = useState(null);
 
   var addTask = () => {
     if (newTask.trim() !== "") {
       setTasks([...tasks, newTask]);
-      setNewTask("");
+      setNewTask(null);
     }
   };
 
@@ -29,7 +29,7 @@ var TodoList = () => {
 
   return (
     <Container sx={{ textAlign: "center" }} className="App">
-      <Message variant="h4" gutterBottom>
+      <Message>
         Список задач
       </Message>
       <TextField
@@ -37,7 +37,7 @@ var TodoList = () => {
         variant="outlined"
         fullWidth
         value={newTask}
-        onChange={(e) => setNewTask(e.target.value)}
+        onChange={(e) => setNewTask({ name: e.target.value.trim(), id: Date.now()})}
         onKeyDown={(e) => e.key === "Enter" && addTask()}
         sx={{ mb: 2 }}
       />
@@ -48,14 +48,14 @@ var TodoList = () => {
         <List>
           {tasks.map((task, index) => (
             <ListItem
-              key={index}
+              key={task.id}
               secondaryAction={
                 <IconButton edge="end" onClick={() => removeTask(index)}>
                   <DeleteIcon color="error" />
                 </IconButton>
               }
             >
-              <ListItemText primary={task} />
+              <ListItemText primary={task.name} />
             </ListItem>
           ))}
         </List>

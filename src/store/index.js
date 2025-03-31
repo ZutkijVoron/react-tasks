@@ -1,22 +1,12 @@
-import { createSlice, configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
+import productsSlice from './productsSlice'
+import themeSlice from './themeSlice'
 
-const themeSlice = createSlice({
-  name: 'theme',
-  initialState: {
-    isDark: false
-  },
-  reducers: {
-    TOGGLE_THEME: (state) => {
-      state.isDark = !state.isDark
-    }
-  }
-})
 
-export const { TOGGLE_THEME } = themeSlice.actions
-
-export const store = configureStore({
+export var store = configureStore({
   reducer: {
-    theme: themeSlice.reducer
+    theme: themeSlice,
+    products: productsSlice
   }
 })
 

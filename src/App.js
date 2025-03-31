@@ -24,9 +24,11 @@ function App() {
       <div className={isDark ? "dark" : ""}>
         <BrowserRouter>
           <HeaderComponent>
-            {routes.map((route) => (
-              <NavLink key={route.path} to={route.path}>{route.name}</NavLink>
-            ))}
+            {routes.map((route) => {
+              if (route.show) {
+                return <NavLink key={route.path} to={route.path}>{route.name}</NavLink>
+              }
+            })}
             <ToggleTheme />
           </HeaderComponent>
           <Routes className="content">

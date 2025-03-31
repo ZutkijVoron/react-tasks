@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { IconButton } from "@mui/material";
 import { Brightness7, Brightness4 } from "@mui/icons-material";
-import { TOGGLE_THEME } from "../../store/index";
+import { TOGGLE_THEME } from "../../store/themeSlice";
 
 function ToggleTheme() {
     var dispatch = useDispatch();
