@@ -1,3 +1,5 @@
+Аттестацию я чуть позже отправлю, на выходных делать буду.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
